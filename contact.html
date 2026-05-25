@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-header { text-align: right; font-size: 45px; margin-bottom: 60px; }
+        .contact-header span { font-style: italic; }
+        .contact-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: radial-gradient(circle, rgba(233,213,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            padding: 40px 0;
+        }
+        .contact-item { text-align: center; width: 250px; }
+        .contact-item .icon { font-size: 60px; margin-bottom: 15px; }
+        .contact-item p { font-size: 14px; font-weight: bold; color: #4b5563; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">sect.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="signup.html">Signup</a>
+            <a href="signin.html">Signin</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="contact-header">contact <span>us</span></div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="icon">✉️</div>
+                <p>REZEFANS@GMAIL.COM</p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📷</div>
+                <p>@***_*******</p>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📞</div>
+                <p>000-0000-0000</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

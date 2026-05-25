@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gallery-title { text-align: center; font-size: 40px; color: #8B5CF6; margin-bottom: 40px; }
+        
+        /* GRID LAYOUT RESPONSIVE */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .gallery-item { width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        
+        /* Membuat item pertama memanjang penuh ke samping seperti di mockup */
+        .item-large { grid-column: span 2; height: 250px; }
+        .item-sub { height: 180px; }
+
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .item-large { grid-column: span 1; height: 180px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">sect.</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="signup.html">Signup</a>
+            <a href="signin.html">Signin</a>
+            <a href="gallery.html" class="active">Gallery</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="gallery-title">gallery</div>
+        <div class="gallery-grid">
+            <div class="gallery-item item-large">
+                <img src="asset/rezdenalt.jpg" alt="Gallery 1" style="object-position: center 29%;">
+            </div>
+            <div class="gallery-item item-sub">
+                <img src="asset/denjiwar.jpg" alt="Gallery 2" style="object-position: center 69%;">
+            </div>
+            <div class="gallery-item item-sub">
+                <img src="asset/rezewar.jpg" alt="Gallery 3" style="object-position: center 69%;">
+            </div>
+            <div class="gallery-item item-sub">
+                <img src="asset/download (70).jpg" alt="Gallery 4">
+            </div>
+            <div class="gallery-item item-sub">
+                <img src="asset/download (69).jpg" alt="Gallery 5">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

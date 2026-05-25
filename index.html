@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Sect - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            min-height: 85vh;
+            padding: 40px 8%;
+            flex-wrap: wrap;
+        }
+        .hero-left { flex: 1; min-width: 300px; }
+        .hero-left h1 { font-size: 45px; line-height: 1.2; margin-bottom: 20px; }
+        .hero-left span { font-style: italic; font-weight: 800; }
+        
+        /* SLIDER CSS */
+        .slider-container {
+            width: 100%;
+            max-width: 500px;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .slides { display: flex; width: 300%; height: 100%; transition: 0.5s; }
+        .slides img { width: 100%; height: 100%; object-fit: cover; }
+        .slide-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.6); border: none; font-size: 20px;
+            padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10;
+        }
+        .btn-prev { left: 10px; } .btn-next { right: 10px; }
+
+        .hero-right { flex: 1; min-width: 300px; text-align: center; }
+        .hero-right img { max-width: 100%; height: auto; max-height: 500px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">sect.</div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="signup.html">Signup</a>
+            <a href="signin.html">Signin</a>
+            <a href="gallery.html">Gallery</a>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>welcome to my <br><span>sect</span></h1>
+            
+            <div class="slider-container">
+                <button class="slide-btn btn-prev" onclick="moveSlide(-1)">❮</button>
+                <button class="slide-btn btn-next" onclick="moveSlide(1)">❯</button>
+                <div class="slides" id="slider">
+                    <img src="asset/rezden(1).jpg" alt="Slide 1">
+                    <img src="asset/rezden(2).jpg" alt="Slide 2">
+                    <img src="asset/rezden(3).jpg" alt="Slide 3">
+                </div>
+            </div>
+            <p style="color: #6b7280; font-size: 14px;">A digitized collection of things and core<br>memories that live rent-free in my mind.</p>
+        </div>
+        <div class="hero-right">
+            <img src="asset/rezdenhanabi.jpg" alt="Reze Character">
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        function moveSlide(direction) {
+            const slider = document.getElementById('slider');
+            currentIndex = (currentIndex + direction + 3) % 3;
+            slider.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+        }
+    </script>
+</body>
+</html>

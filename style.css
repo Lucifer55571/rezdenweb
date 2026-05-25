@@ -1,0 +1,455 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES (Tema Purple Sect)
+   ========================================================================== */
+:root {
+    --primary-color: #6D28D9;   /* Ungu Tua */
+    --accent-color: #8B5CF6;    /* Ungu Lavender */
+    --light-bg: #F5F3FF;        /* Background Ungu Muda/Pastel */
+    --white-trans: rgba(255, 255, 255, 0.75);
+    --text-dark: #1F2937;
+    --text-muted: #6B7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #FCFAFF;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Container utama pembatas lebar konten */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVBAR (Sticky & Responsif)
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(109, 40, 217, 0.05);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--primary-color);
+    letter-spacing: -1px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+/* Efek garis bawah aktif */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after, nav a.active::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. LAYOUT HALAMAN HOME (Hero Section dengan Slider)
+   ========================================================================== */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+    min-height: 85vh;
+    padding: 60px 8%;
+    gap: 40px;
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 320px;
+}
+
+.hero-left h1 {
+    font-size: clamp(32px, 5vw, 52px); /* Responsif ukuran font otomatis */
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.hero-left h1 span {
+    font-style: italic;
+    font-weight: 900;
+    color: var(--primary-color);
+}
+
+.hero-subtext {
+    color: var(--text-muted);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.hero-right {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-right img {
+    max-width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+}
+
+/* KONTROL SLIDER RESPONSIF */
+.slider-container {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9; /* Menjaga proporsi kotak slider di segala layar */
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(109, 40, 217, 0.15);
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slides img {
+    width: 33.333%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.slide-btn:hover { background: rgba(255, 255, 255, 0.9); color: var(--primary-color); }
+.btn-prev { left: 12px; }
+.btn-next { right: 12px; }
+
+/* ==========================================================================
+   4. LAYOUT HALAMAN ABOUT US
+   ========================================================================== */
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 40px 0;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: clamp(35px, 6vw, 55px);
+    margin-bottom: 20px;
+}
+
+.about-text h2 span {
+    font-style: italic;
+    font-weight: 800;
+    color: var(--accent-color);
+}
+
+.about-img {
+    flex: 1;
+    min-width: 300px;
+    background: var(--accent-color);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(139, 92, 246, 0.2);
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================================================
+   5. LAYOUT HALAMAN CONTACT US
+   ========================================================================== */
+.contact-header {
+    text-align: right;
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: 50px;
+}
+.contact-header span { font-style: italic; color: var(--primary-color); }
+
+.contact-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 20px;
+    background: radial-gradient(circle, rgba(233,213,255,0.4) 0%, rgba(255,255,255,0) 75%);
+}
+
+.contact-item {
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.contact-item:hover { transform: translateY(-5px); }
+.contact-item .icon { font-size: 65px; margin-bottom: 15px; }
+.contact-item p { font-size: 14px; font-weight: 700; color: #4B5563; letter-spacing: 0.5px; }
+
+/* ==========================================================================
+   6. LAYOUT HALAMAN AUTHENTICATION (Sign In & Sign Up)
+   ========================================================================== */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--white-trans);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.auth-card h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.auth-card h2 span { font-style: italic; font-weight: 900; }
+
+.auth-card input {
+    width: 100%;
+    padding: 14px 20px;
+    margin: 12px 0;
+    border: none;
+    background: var(--accent-color);
+    border-radius: 30px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    transition: opacity 0.3s;
+}
+
+.auth-card input::placeholder { color: rgba(255, 255, 255, 0.85); font-weight: 400; }
+.auth-card input:focus { opacity: 0.95; box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); }
+
+.auth-card button {
+    width: 100%;
+    padding: 14px;
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 14px;
+    transition: transform 0.2s, background 0.3s, color 0.3s;
+}
+
+.auth-card button:hover { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+.auth-card button:active { transform: scale(0.98); }
+
+/* Back Button di Auth Page */
+.back-btn {
+    position: fixed; top: 20px; left: 20px; 
+    background: white; padding: 10px 22px; 
+    border-radius: 25px; text-decoration: none; 
+    color: var(--primary-color); font-weight: 700; 
+    font-size: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 100; transition: background 0.3s;
+}
+.back-btn:hover { background: var(--light-bg); }
+
+/* ==========================================================================
+   7. LAYOUT HALAMAN GALLERY (CSS Grid)
+   ========================================================================== */
+.gallery-title {
+    text-align: center;
+    font-size: 42px;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default 2 Kolom */
+    gap: 20px;
+}
+
+.gallery-item {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover { transform: scale(1.015); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.item-large { grid-column: span 2; height: 320px; } /* Lebar penuh di atas */
+.item-sub { height: 220px; }
+
+/* ==========================================================================
+   8. MEDIA QUERIES (Kunci Utama Responsivitas Gadget/HP)
+   ========================================================================== */
+
+/* --- TABLET LAYOUT (Lebar layar di bawah 992px) --- */
+@media (max-width: 992px) {
+    header { padding: 20px 5%; }
+    .hero-section { padding: 40px 5%; gap: 30px; }
+}
+
+/* --- MOBILE LAYOUT (Lebar layar di bawah 768px) --- */
+@media (max-width: 768px) {
+    /* Navbar berubah menjadi tumpuk tengah agar pas di layar kecil */
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    nav a { font-size: 14px; }
+
+    /* Hero section menyusun ke bawah (Vertikal) */
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    
+    .hero-left, .hero-right {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .slider-container {
+        margin: 0 auto; /* Menengahkan slider */
+    }
+
+    /* About Us menyusun ke bawah */
+    .about-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 35px;
+    }
+    
+    .about-text { padding-right: 0; }
+    
+    /* Contact text pindah ke tengah */
+    .contact-header { text-align: center; margin-bottom: 30px; }
+
+    /* Sign Up Form ditarik ke tengah layar pada hp */
+    .auth-card {
+        position: static !important; 
+        margin: 0 auto;
+    }
+}
+
+/* --- SMARTPHONE KECIL LAYOUT (Lebar layar di bawah 576px) --- */
+@media (max-width: 576px) {
+    nav { gap: 10px 15px; } /* Jarak menu lebih rapat */
+    
+    /* Grid Gallery berubah total menjadi 1 kolom memanjang ke bawah */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .item-large, .item-sub {
+        grid-column: span 1;
+        height: 200px;
+    }
+    
+    .auth-card { padding: 30px 20px; }
+    .auth-card h2 { font-size: 30px; }
+}
